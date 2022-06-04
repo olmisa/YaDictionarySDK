@@ -1,0 +1,99 @@
+{
+    "head": {},
+    "def": [
+        {
+            "text": "Traum",
+            "pos": "noun",
+            "gen": "m",
+            "ts": "tʁaʊ̯m",
+            "fl": "-es, -s; Träume",
+            "tr": [
+                {
+                    "text": "мечта",
+                    "pos": "noun",
+                    "gen": "ж",
+                    "fr": 10,
+                    "mean": [
+                        {
+                            "text": "Wunschtraum"
+                        }
+                    ],
+                    "ex": [
+                        {
+                            "text": "amerikanischer Traum",
+                            "tr": [
+                                {
+                                    "text": "американская мечта"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "text": "сновидение",
+                    "pos": "noun",
+                    "gen": "ср",
+                    "fr": 5,
+                    "syn": [
+                        {
+                            "text": "сон",
+                            "pos": "noun",
+                            "gen": "м",
+                            "fr": 1
+                        },
+                        {
+                            "text": "греза",
+                            "pos": "noun",
+                            "gen": "ж",
+                            "fr": 1
+                        }
+                    ],
+                    "mean": [
+                        {
+                            "text": "Schlaf"
+                        },
+                        {
+                            "text": "Träumerei"
+                        }
+                    ],
+                    "ex": [
+                        {
+                            "text": "ein schlechter Traum",
+                            "tr": [
+                                {
+                                    "text": "плохое сновидение"
+                                }
+                            ]
+                        },
+                        {
+                            "text": "ein böser Traum",
+                            "tr": [
+                                {
+                                    "text": "дурной сон"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "text": "воображение",
+                    "pos": "noun",
+                    "gen": "ср",
+                    "fr": 1
+                },
+                {
+                    "text": "иллюзия",
+                    "pos": "noun",
+                    "gen": "ж",
+                    "fr": 1
+                },
+                {
+                    "text": "галлюцинация",
+                    "pos": "noun",
+                    "gen": "ж",
+                    "fr": 1
+                }
+            ]
+        }
+    ]
+}
