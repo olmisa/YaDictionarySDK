@@ -1,6 +1,6 @@
 # YaDictionarySDK
 
-YaDictionarySDK is a .NETStandard2.0 and .NETFramework C# library which provides access for Yandex Dictionary API:
+YaDictionarySDK is a .NETStandard2.0 and .NETFramework 4.5 C# library which provides access for Yandex Dictionary API:
 
 https://yandex.com/dev/dictionary/
 
