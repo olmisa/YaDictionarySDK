@@ -73,6 +73,19 @@ namespace YaDictionarySDKTests
         }
 
         [TestMethod]
+        public async Task GetTranslationFullResponseTest()
+        {
+            //prepare data
+            string testDataContent = File.ReadAllText("Data/Traum.json");
+            var expectedResponse = JsonConvert.DeserializeObject<YaResponse>(testDataContent);
+
+            //get current data
+            var yaSdk = new YaDictionary(apiKey);
+            var currentResponse = await yaSdk.GetTranslationFullResponseAsync("Traum", Constants.LanguagePairs.DeRu);
+            currentResponse.Should().BeEquivalentTo(expectedResponse);
+        }
+
+        [TestMethod]
         public async Task GetLanguagesTest()
         {
             var expectedLangPairs = typeof(Constants.LanguagePairs).GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy)

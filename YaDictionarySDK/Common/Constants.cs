@@ -2,21 +2,21 @@
 {
     internal class Constants
     {
-        public const string TanslationsDelimiter = "; ";
+        internal const string TanslationsDelimiter = "; ";
 
-        public static class SettingsKeys
+        internal static class SettingsKeys
         {
             public const string ApiKey = "ApiKey";
         }
 
-        public static class ExceptionMessages
+        internal static class ExceptionMessages
         {
             public const string ApiKeyIsEmpty = "API key is empty.";
             public const string ConnectionProblem = "Something went wrong with Yandex Dictionary API connection.";
             public const string BadStatusCode = "Response bad status code was found.";
         }
 
-        public static class JsonPropertiesNames
+        internal static class JsonPropertiesNames
         {
             public const string Pos = "pos";
             public const string Text = "text";
@@ -28,7 +28,7 @@
             public const string Tr = "tr";
         }
 
-        public static class LanguagePairs
+        internal static class LanguagePairs
         {
             public const string BeBe = "be-be";
             public const string BeRu = "be-ru";
