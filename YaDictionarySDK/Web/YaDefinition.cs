@@ -6,7 +6,7 @@ using JsonNames = YaDictionarySDK.Common.Constants.JsonPropertiesNames;
 
 namespace YaDictionarySDK.Web
 {
-    internal class YaDefinition
+    public class YaDefinition
     {
         [JsonProperty(JsonNames.Text)]
         public string Text { get; private set; }
