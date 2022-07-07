@@ -13,7 +13,7 @@ namespace YaDictionarySDK.Methods
         public async Task<List<string>> GetResult()
         {
             var responseContentJson = await GetResponseContent(string.Format(MethodUrl, apiKey));
-            return await Task.Run(() => JsonConvert.DeserializeObject<List<string>>(responseContentJson));
+            return JsonConvert.DeserializeObject<List<string>>(responseContentJson);
         }
     }
 }
