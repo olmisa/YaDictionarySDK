@@ -24,7 +24,7 @@ namespace YaDictionarySDK.Methods
         public async Task<List<string>> GetResult()
         {
             var responseContentJson = await GetResponseContent(string.Format(MethodUrl, textToTranslate, apiKey, selectedLanguage));
-            var yaResponse = await Task.Run(() => JsonConvert.DeserializeObject<YaResponse>(responseContentJson));
+            var yaResponse = JsonConvert.DeserializeObject<YaResponse>(responseContentJson);
             List<string> result = new List<string>();
             if (yaResponse != null && yaResponse.Def != null && yaResponse.Def.Count > 0)
             {
