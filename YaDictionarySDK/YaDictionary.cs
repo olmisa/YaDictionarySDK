@@ -7,7 +7,7 @@ using YaDictionarySDK.Web;
 
 namespace YaDictionarySDK
 {
-    public class YaDictionary
+    public class YaDictionary : IWordsDictionary
     {
         private string apiKey;
         public YaDictionary(string _apiKey)
