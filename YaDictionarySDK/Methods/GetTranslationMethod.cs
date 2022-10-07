@@ -3,9 +3,8 @@ using System.Linq;
 using System.Threading.Tasks;
 
 using Newtonsoft.Json;
-
 using YaDictionarySDK.Web;
-
+using YaDictionarySDK.Web.Interfaces;
 
 namespace YaDictionarySDK.Methods
 {
