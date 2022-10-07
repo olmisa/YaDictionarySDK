@@ -1,12 +1,12 @@
 ﻿using System.Threading.Tasks;
 
 using Newtonsoft.Json;
-
 using YaDictionarySDK.Web;
+using YaDictionarySDK.Web.Interfaces;
 
 namespace YaDictionarySDK.Methods
 {
-    internal class GetTranslationFullResponseMethod : YaDictionaryBaseMethod, IYaDictionaryMethod<YaResponse>
+    internal class GetTranslationFullResponseMethod : YaDictionaryBaseMethod, IYaDictionaryMethod<IDictionaryResponse>
     {
         private string selectedLanguage;
         private string textToTranslate;
@@ -18,7 +18,7 @@ namespace YaDictionarySDK.Methods
             selectedLanguage = _selectedLanguage;
         }
 
-        public async Task<YaResponse> GetResult()
+        public async Task<IDictionaryResponse> GetResult()
         {
             var responseContentJson = await GetResponseContent(string.Format(MethodUrl, textToTranslate, apiKey, selectedLanguage));
             return JsonConvert.DeserializeObject<YaResponse>(responseContentJson);

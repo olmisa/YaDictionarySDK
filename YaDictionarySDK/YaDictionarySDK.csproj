@@ -13,8 +13,8 @@
     <RepositoryUrl>https://github.com/olmisa/YaDictionarySDK</RepositoryUrl>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
-    <Version>1.0.1</Version>
-    <PackageReleaseNotes>Method to get full translation response was added.</PackageReleaseNotes>
+    <Version>1.0.2</Version>
+    <PackageReleaseNotes>Interface for YaDictionary was added.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

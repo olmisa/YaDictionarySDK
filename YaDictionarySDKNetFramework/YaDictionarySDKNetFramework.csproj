@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>YaDictionarySDKNetFramework</RootNamespace>
     <AssemblyName>YaDictionarySDKNetFramework</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,8 +45,74 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\YaDictionarySDK\Common\Converters\InterfaceListToTypeListConverter.cs">
+      <Link>InterfaceListToTypeListConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\YaDictionarySDK\Common\Converters\InterfaceToTypeConverter.cs">
+      <Link>InterfaceToTypeConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\YaDictionarySDK\IWordsDictionary.cs">
+      <Link>IWordsDictionary.cs</Link>
+    </Compile>
     <Compile Include="..\YaDictionarySDK\Methods\GetTranslationFullResponseMethod.cs">
       <Link>GetTranslationFullResponseMethod.cs</Link>
+    </Compile>
+    <Compile Include="..\YaDictionarySDK\Web\Interfaces\IDictionaryResponse.cs">
+      <Link>IDictionaryResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\YaDictionarySDK\Web\Interfaces\IExamplable.cs">
+      <Link>IExamplable.cs</Link>
+    </Compile>
+    <Compile Include="..\YaDictionarySDK\Web\Interfaces\IExample.cs">
+      <Link>IExample.cs</Link>
+    </Compile>
+    <Compile Include="..\YaDictionarySDK\Web\Interfaces\IFrequentable.cs">
+      <Link>IFrequentable.cs</Link>
+    </Compile>
+    <Compile Include="..\YaDictionarySDK\Web\Interfaces\IGenderable.cs">
+      <Link>IGenderable.cs</Link>
+    </Compile>
+    <Compile Include="..\YaDictionarySDK\Web\Interfaces\IMeaningable.cs">
+      <Link>IMeaningable.cs</Link>
+    </Compile>
+    <Compile Include="..\YaDictionarySDK\Web\Interfaces\IMultifomable.cs">
+      <Link>IMultifomable.cs</Link>
+    </Compile>
+    <Compile Include="..\YaDictionarySDK\Web\Interfaces\ISynonym.cs">
+      <Link>ISynonym.cs</Link>
+    </Compile>
+    <Compile Include="..\YaDictionarySDK\Web\Interfaces\ISynonymable.cs">
+      <Link>ISynonymable.cs</Link>
+    </Compile>
+    <Compile Include="..\YaDictionarySDK\Web\Interfaces\IText.cs">
+      <Link>IText.cs</Link>
+    </Compile>
+    <Compile Include="..\YaDictionarySDK\Web\Interfaces\ITranscriptable.cs">
+      <Link>ITranscriptable.cs</Link>
+    </Compile>
+    <Compile Include="..\YaDictionarySDK\Web\Interfaces\ITranslatable.cs">
+      <Link>ITranslatable.cs</Link>
+    </Compile>
+    <Compile Include="..\YaDictionarySDK\Web\Interfaces\ITranslation.cs">
+      <Link>ITranslation.cs</Link>
+    </Compile>
+    <Compile Include="..\YaDictionarySDK\Web\Interfaces\IVerbFormable.cs">
+      <Link>IVerbFormable.cs</Link>
+    </Compile>
+    <Compile Include="..\YaDictionarySDK\Web\Interfaces\IWordDefinition.cs">
+      <Link>IWordDefinition.cs</Link>
+    </Compile>
+    <Compile Include="..\YaDictionarySDK\Web\Interfaces\IWordEntry.cs">
+      <Link>IWordEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\YaDictionarySDK\Web\YaExample.cs">
+      <Link>YaExample.cs</Link>
+    </Compile>
+    <Compile Include="..\YaDictionarySDK\Web\YaSynonym.cs">
+      <Link>YaSynonym.cs</Link>
+    </Compile>
+    <Compile Include="..\YaDictionarySDK\Web\YaText.cs">
+      <Link>YaText.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

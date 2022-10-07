@@ -11,6 +11,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using YaDictionarySDK;
 using YaDictionarySDK.Web;
 using YaDictionarySDK.Common;
+using YaDictionarySDK.Web.Interfaces;
 
 namespace YaDictionarySDKTests
 {

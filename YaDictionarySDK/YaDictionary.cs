@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using YaDictionarySDK.Common;
 using YaDictionarySDK.Methods;
 using YaDictionarySDK.Web;
+using YaDictionarySDK.Web.Interfaces;
 
 namespace YaDictionarySDK
 {
@@ -29,7 +30,7 @@ namespace YaDictionarySDK
             return await method.GetResult();
         }
 
-        public async Task<YaResponse> GetTranslationFullResponseAsync(string _textToTranslate, string _selectedLanguage)
+        public async Task<IDictionaryResponse> GetTranslationFullResponseAsync(string _textToTranslate, string _selectedLanguage)
         {
             CheckApiKey();
             var method = new GetTranslationFullResponseMethod(_textToTranslate, _selectedLanguage, apiKey);

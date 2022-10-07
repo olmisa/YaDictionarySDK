@@ -26,6 +26,11 @@
             public const string Ts = "ts";
             public const string Fl = "fl";
             public const string Tr = "tr";
+            public const string Asp = "asp";
+            public const string Syn = "syn";
+            public const string Mean = "mean";
+            public const string Ex = "ex";
+            public const string Fr = "fr";
         }
 
         internal static class LanguagePairs
