@@ -1,6 +1,6 @@
 # YaDictionarySDK
 
-YaDictionarySDK is a .NETStandard2.0 and .NETFramework 4.5 C# library which provides access for Yandex Dictionary API:
+YaDictionarySDK is a .NETStandard2.0 and .NETFramework 4.8 C# library which provides access for Yandex Dictionary API:
 
 https://yandex.com/dev/dictionary/
 
@@ -19,7 +19,7 @@ var translation = await yaSdk.GetTranslationAsync(wordToTranslate, languagePair)
 
 # Prerequisites
 
-Requires .NET Framework 4.5 or higher or .NET Core, .NetStandard. HttpClient was used in this library.
+Requires .NET Framework 4.8 or higher or .NET Core, .NetStandard. HttpClient was used in this library.
 The Api key for tests should be placed into environment variable with name "YA_DICTIONARY_API_KEY".
 
 # Terms of Use
