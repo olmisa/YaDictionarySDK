@@ -20,21 +20,21 @@ namespace YaDictionarySDK
         {
             CheckApiKey();
             var method = new GetLanguagesMethod(apiKey);
-            return await method.GetResult();
+            return await method.GetResult().ConfigureAwait(false);
         }
 
         public async Task<List<string>> GetTranslationAsync(string _textToTranslate, string _selectedLanguage)
         {
             CheckApiKey();
             var method = new GetTranslationMethod(_textToTranslate, _selectedLanguage, apiKey);
-            return await method.GetResult();
+            return await method.GetResult().ConfigureAwait(false);
         }
 
         public async Task<IDictionaryResponse> GetTranslationFullResponseAsync(string _textToTranslate, string _selectedLanguage)
         {
             CheckApiKey();
             var method = new GetTranslationFullResponseMethod(_textToTranslate, _selectedLanguage, apiKey);
-            return await method.GetResult();
+            return await method.GetResult().ConfigureAwait(false);
         }
 
         private void CheckApiKey()
