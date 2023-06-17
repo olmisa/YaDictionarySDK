@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 using Newtonsoft.Json;
@@ -20,9 +21,9 @@ namespace YaDictionarySDK.Methods
             selectedLanguage = _selectedLanguage;
         }
 
-        public async Task<List<string>> GetResult()
+        public async Task<List<string>> GetResult(CancellationToken? _cancellationToken = null)
         {
-            var responseContentJson = await GetResponseContent(string.Format(MethodUrl, textToTranslate, apiKey, selectedLanguage));
+            var responseContentJson = await GetResponseContent(string.Format(MethodUrl, textToTranslate, apiKey, selectedLanguage), _cancellationToken);
             var yaResponse = JsonConvert.DeserializeObject<YaResponse>(responseContentJson);
             List<string> result = new List<string>();
             if (yaResponse != null && yaResponse.Def != null && yaResponse.Def.Count > 0)
