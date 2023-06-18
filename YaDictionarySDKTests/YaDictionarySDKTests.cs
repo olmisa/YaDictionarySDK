@@ -12,6 +12,7 @@ using YaDictionarySDK;
 using YaDictionarySDK.Web;
 using YaDictionarySDK.Common;
 using YaDictionarySDK.Web.Interfaces;
+using System.Threading;
 
 namespace YaDictionarySDKTests
 {
@@ -19,11 +20,13 @@ namespace YaDictionarySDKTests
     public class YaDictionarySDKTests
     {
         private static string apiKey;
+        private static CancellationTokenSource tokenSource;
 
         [AssemblyInitialize]
         public static void Init(TestContext _textContext)
         {
             apiKey = Environment.GetEnvironmentVariable("YA_DICTIONARY_API_KEY");
+            tokenSource = new CancellationTokenSource();
         }
 
         
@@ -71,6 +74,9 @@ namespace YaDictionarySDKTests
             var yaSdk = new YaDictionary(apiKey);
             var currentValues = await yaSdk.GetTranslationAsync("Traum", Constants.LanguagePairs.DeRu);
             currentValues.Should().Equal(expectedValues);
+
+            currentValues = await yaSdk.GetTranslationAsync("Traum", Constants.LanguagePairs.DeRu, tokenSource.Token);
+            currentValues.Should().Equal(expectedValues);
         }
 
         [TestMethod]
@@ -84,6 +90,9 @@ namespace YaDictionarySDKTests
             var yaSdk = new YaDictionary(apiKey);
             var currentResponse = await yaSdk.GetTranslationFullResponseAsync("Traum", Constants.LanguagePairs.DeRu);
             currentResponse.Should().BeEquivalentTo(expectedResponse);
+
+            currentResponse = await yaSdk.GetTranslationFullResponseAsync("Traum", Constants.LanguagePairs.DeRu, tokenSource.Token);
+            currentResponse.Should().BeEquivalentTo(expectedResponse);
         }
 
         [TestMethod]
@@ -96,7 +105,10 @@ namespace YaDictionarySDKTests
 
             var yaSdk = new YaDictionary(apiKey);
             var currentLanguages = await yaSdk.GetLanguagesAsync();
-            currentLanguages.Should().Equal(expectedLangPairs);
+            currentLanguages.Should().Contain(expectedLangPairs);
+
+            currentLanguages = await yaSdk.GetLanguagesAsync(tokenSource.Token);
+            currentLanguages.Should().Contain(expectedLangPairs);
         }
     }
 }
