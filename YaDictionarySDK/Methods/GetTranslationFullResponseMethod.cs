@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 
 using Newtonsoft.Json;
 using YaDictionarySDK.Web;
@@ -18,9 +19,9 @@ namespace YaDictionarySDK.Methods
             selectedLanguage = _selectedLanguage;
         }
 
-        public async Task<IDictionaryResponse> GetResult()
+        public async Task<IDictionaryResponse> GetResult(CancellationToken? _cancellationToken = null)
         {
-            var responseContentJson = await GetResponseContent(string.Format(MethodUrl, textToTranslate, apiKey, selectedLanguage));
+            var responseContentJson = await GetResponseContent(string.Format(MethodUrl, textToTranslate, apiKey, selectedLanguage), _cancellationToken);
             return JsonConvert.DeserializeObject<YaResponse>(responseContentJson);
         }
     }

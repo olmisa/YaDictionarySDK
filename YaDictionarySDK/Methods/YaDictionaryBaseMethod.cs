@@ -1,4 +1,5 @@
 ﻿using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 
 using YaDictionarySDK.Common;
@@ -16,14 +17,16 @@ namespace YaDictionarySDK.Methods
             apiKey = _apiKey;
         }
 
-        protected async Task<string> GetResponseContent(string _url)
+        protected async Task<string> GetResponseContent(string _url, CancellationToken? _cancellationToken = null)
         {
             try
             {
                 using (var httpClient = new HttpClient())
                 {
                     var request = new HttpRequestMessage(HttpMethod.Get, _url);
-                    var response = await httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+                    var response = _cancellationToken.HasValue ? await httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, _cancellationToken.Value)
+                                                               : await httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+
                     var content = await response.Content.ReadAsStringAsync();
 
                     if (!response.IsSuccessStatusCode)
