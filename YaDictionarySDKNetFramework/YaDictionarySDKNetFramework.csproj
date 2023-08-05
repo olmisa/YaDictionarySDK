@@ -54,9 +54,6 @@
     <Compile Include="..\YaDictionarySDK\IWordsDictionary.cs">
       <Link>IWordsDictionary.cs</Link>
     </Compile>
-    <Compile Include="..\YaDictionarySDK\Methods\GetTranslationFullResponseMethod.cs">
-      <Link>GetTranslationFullResponseMethod.cs</Link>
-    </Compile>
     <Compile Include="..\YaDictionarySDK\Web\Interfaces\IDictionaryResponse.cs">
       <Link>IDictionaryResponse.cs</Link>
     </Compile>
@@ -120,10 +117,18 @@
     <Compile Include="..\YaDictionarySDK\YaDictionary.cs" Link="YaDictionary.cs" />
     <Compile Include="..\YaDictionarySDK\Common\Constants.cs" Link="Constants.cs" />
     <Compile Include="..\YaDictionarySDK\Common\YaDictionaryException.cs" Link="YaDictionaryException.cs" />
-    <Compile Include="..\YaDictionarySDK\Methods\GetLanguagesMethod.cs" Link="GetLanguagesMethod.cs" />
-    <Compile Include="..\YaDictionarySDK\Methods\GetTranslationMethod.cs" Link="GetTranslationMethod.cs" />
-    <Compile Include="..\YaDictionarySDK\Methods\IYaDictionaryMethod.cs" Link="IYaDictionaryMethod.cs" />
+    <Compile Include="..\YaDictionarySDK\Common\WebRequestSender.cs" Link="WebRequestSender.cs" />
+    <Compile Include="..\YaDictionarySDK\Methods\GetLanguagesSyncMethod.cs" Link="GetLanguagesSyncMethod.cs" />
+    <Compile Include="..\YaDictionarySDK\Methods\GetTranslationSyncMethod.cs" Link="GetTranslationSyncMethod.cs" />
+    <Compile Include="..\YaDictionarySDK\Methods\GetLanguagesAsyncMethod.cs" Link="GetLanguagesAsyncMethod.cs" />
+    <Compile Include="..\YaDictionarySDK\Methods\GetTranslationAsyncMethod.cs" Link="GetTranslationAsyncMethod.cs" />
+    <Compile Include="..\YaDictionarySDK\Methods\GetTranslationFullResponseAsyncMethod.cs" Link="GetTranslationFullResponseAsyncMethod.cs" />
+    <Compile Include="..\YaDictionarySDK\Methods\GetTranslationFullResponseSyncMethod.cs" Link="GetTranslationFullResponseSyncMethod.cs" />
+    <Compile Include="..\YaDictionarySDK\Methods\IYaDictionaryAsyncMethod.cs" Link="IYaDictionaryAsyncMethod.cs" />
+    <Compile Include="..\YaDictionarySDK\Methods\IYaDictionarySyncMethod.cs" Link="IYaDictionarySyncMethod.cs" />
     <Compile Include="..\YaDictionarySDK\Methods\YaDictionaryBaseMethod.cs" Link="YaDictionaryBaseMethod.cs" />
+    <Compile Include="..\YaDictionarySDK\Methods\YaDictionaryAsyncMethod.cs" Link="YaDictionaryAsyncMethod.cs" />
+    <Compile Include="..\YaDictionarySDK\Methods\YaDictionarySyncMethod.cs" Link="YaDictionarySyncMethod.cs" />
     <Compile Include="..\YaDictionarySDK\Web\YaDefinition.cs" Link="YaDefinition.cs" />
     <Compile Include="..\YaDictionarySDK\Web\YaResponse.cs" Link="YaResponse.cs" />
     <Compile Include="..\YaDictionarySDK\Web\YaTranslation.cs" Link="YaTranslation.cs" />

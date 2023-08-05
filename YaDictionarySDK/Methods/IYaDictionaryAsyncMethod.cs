@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace YaDictionarySDK.Methods
 {
-    internal interface IYaDictionaryMethod<T>
+    internal interface IYaDictionaryAsyncMethod<T>
     {
         Task<T> GetResult(CancellationToken? _cancellationToken);
     }
