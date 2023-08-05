@@ -13,8 +13,8 @@
     <RepositoryUrl>https://github.com/olmisa/YaDictionarySDK</RepositoryUrl>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
-    <Version>1.0.5</Version>
-    <PackageReleaseNotes>ConfigureAwait was added to SDK methods</PackageReleaseNotes>
+    <Version>1.0.6</Version>
+    <PackageReleaseNotes>Sync methods were added</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

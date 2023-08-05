@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 
 using YaDictionarySDK.Common;
 using YaDictionarySDK.Methods;
-using YaDictionarySDK.Web;
 using YaDictionarySDK.Web.Interfaces;
 
 namespace YaDictionarySDK
@@ -20,22 +19,43 @@ namespace YaDictionarySDK
         public async Task<List<string>> GetLanguagesAsync(CancellationToken? _cancellationToken = null)
         {
             CheckApiKey();
-            var method = new GetLanguagesMethod(apiKey);
+            var method = new GetLanguagesAsyncMethod(apiKey);
             return await method.GetResult(_cancellationToken).ConfigureAwait(false);
         }
 
         public async Task<List<string>> GetTranslationAsync(string _textToTranslate, string _selectedLanguage, CancellationToken? _cancellationToken = null)
         {
             CheckApiKey();
-            var method = new GetTranslationMethod(_textToTranslate, _selectedLanguage, apiKey);
+            var method = new GetTranslationAsyncMethod(_textToTranslate, _selectedLanguage, apiKey);
             return await method.GetResult(_cancellationToken).ConfigureAwait(false);
         }
 
         public async Task<IDictionaryResponse> GetTranslationFullResponseAsync(string _textToTranslate, string _selectedLanguage, CancellationToken? _cancellationToken = null)
         {
             CheckApiKey();
-            var method = new GetTranslationFullResponseMethod(_textToTranslate, _selectedLanguage, apiKey);
+            var method = new GetTranslationFullResponseAsyncMethod(_textToTranslate, _selectedLanguage, apiKey);
             return await method.GetResult(_cancellationToken).ConfigureAwait(false);
+        }
+
+        public List<string> GetLanguages()
+        {
+            CheckApiKey();
+            var method = new GetLanguagesSyncMethod(apiKey);
+            return method.GetResult();
+        }
+
+        public List<string> GetTranslation(string _textToTranslate, string _selectedLanguage)
+        {
+            CheckApiKey();
+            var method = new GetTranslationSyncMethod(_textToTranslate, _selectedLanguage, apiKey);
+            return method.GetResult();
+        }
+
+        public IDictionaryResponse GetTranslationFullResponse(string _textToTranslate, string _selectedLanguage)
+        {
+            CheckApiKey();
+            var method = new GetTranslationFullResponseSyncMethod(_textToTranslate, _selectedLanguage, apiKey);
+            return method.GetResult();
         }
 
         private void CheckApiKey()
