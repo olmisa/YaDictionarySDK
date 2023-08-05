@@ -5,8 +5,6 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Threading;
-using System.Threading.Tasks;
 using YaDictionarySDK;
 using YaDictionarySDK.Common;
 using YaDictionarySDK.Web;
@@ -14,52 +12,46 @@ using YaDictionarySDK.Web;
 namespace YaDictionarySDKTests
 {
     [TestClass]
-    public class YaDictionarySDKTests
+    public class YaDictionarySDKSyncTests
     {
         private static string apiKey;
-        private static CancellationTokenSource tokenSource;
 
         [ClassInitialize]
         public static void Init(TestContext _textContext)
         {
             apiKey = Environment.GetEnvironmentVariable("YA_DICTIONARY_API_KEY");
-            tokenSource = new CancellationTokenSource();
         }
 
 
         [DataRow("")]
         [DataRow(null)]
         [DataTestMethod]
-        public async Task BadApiKeyTest(string _apiKey)
+        public void BadApiKeyTest(string _apiKey)
         {
             var yaSdk = new YaDictionary(_apiKey);
-            Func<Task> getLanguagesTask = async () => { await yaSdk.GetLanguagesAsync(); };
-            await getLanguagesTask.Should().ThrowAsync<YaDictionaryException>()
-                .WithMessage(Constants.ExceptionMessages.ApiKeyIsEmpty);
-
-            Func<Task> getTranslationTask = async () => { await yaSdk.GetTranslationAsync(string.Empty, string.Empty); };
-            await getTranslationTask.Should().ThrowAsync<YaDictionaryException>()
+            Action action = () => yaSdk.GetLanguages();
+            action.Should().Throw<YaDictionaryException>()
                 .WithMessage(Constants.ExceptionMessages.ApiKeyIsEmpty);
         }
 
         [TestMethod]
-        public async Task InvalidLanguageTest()
+        public void InvalidLanguageTest()
         {
             var yaSdk = new YaDictionary(apiKey);
-            Func<Task> getTranslationTask = async () => { await yaSdk.GetTranslationAsync(string.Empty, string.Empty); };
-            await getTranslationTask.Should().ThrowAsync<YaDictionaryException>();
+            Action action = () => yaSdk.GetTranslation(string.Empty, string.Empty);
+            action.Should().Throw<YaDictionaryException>();
         }
 
         [TestMethod]
-        public async Task InvalidWordTest()
+        public void InvalidWordTest()
         {
             var yaSdk = new YaDictionary(apiKey);
-            Func<Task> getTranslationTask = async () => { await yaSdk.GetTranslationAsync(null, Constants.LanguagePairs.DeRu); };
-            await getTranslationTask.Should().ThrowAsync<YaDictionaryException>();
+            Action action = () => yaSdk.GetTranslation(null, Constants.LanguagePairs.DeRu);
+            action.Should().Throw<YaDictionaryException>();
         }
 
         [TestMethod]
-        public async Task GetTranslationTest()
+        public void GetTranslationTest()
         {
             //prepare data
             string testDataContent = File.ReadAllText("Data/Traum.json");
@@ -69,15 +61,15 @@ namespace YaDictionarySDKTests
 
             //get current data
             var yaSdk = new YaDictionary(apiKey);
-            var currentValues = await yaSdk.GetTranslationAsync("Traum", Constants.LanguagePairs.DeRu);
+            var currentValues = yaSdk.GetTranslation("Traum", Constants.LanguagePairs.DeRu);
             currentValues.Should().Equal(expectedValues);
 
-            currentValues = await yaSdk.GetTranslationAsync("Traum", Constants.LanguagePairs.DeRu, tokenSource.Token);
+            currentValues = yaSdk.GetTranslation("Traum", Constants.LanguagePairs.DeRu);
             currentValues.Should().Equal(expectedValues);
         }
 
         [TestMethod]
-        public async Task GetTranslationFullResponseTest()
+        public void GetTranslationFullResponseTest()
         {
             //prepare data
             string testDataContent = File.ReadAllText("Data/Traum.json");
@@ -85,15 +77,15 @@ namespace YaDictionarySDKTests
 
             //get current data
             var yaSdk = new YaDictionary(apiKey);
-            var currentResponse = await yaSdk.GetTranslationFullResponseAsync("Traum", Constants.LanguagePairs.DeRu);
+            var currentResponse = yaSdk.GetTranslationFullResponse("Traum", Constants.LanguagePairs.DeRu);
             currentResponse.Should().BeEquivalentTo(expectedResponse);
 
-            currentResponse = await yaSdk.GetTranslationFullResponseAsync("Traum", Constants.LanguagePairs.DeRu, tokenSource.Token);
+            currentResponse = yaSdk.GetTranslationFullResponse("Traum", Constants.LanguagePairs.DeRu);
             currentResponse.Should().BeEquivalentTo(expectedResponse);
         }
 
         [TestMethod]
-        public async Task GetLanguagesTest()
+        public void GetLanguagesTest()
         {
             var expectedLangPairs = typeof(Constants.LanguagePairs).GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy)
                 .Where(fi => fi.IsLiteral && !fi.IsInitOnly)
@@ -101,10 +93,10 @@ namespace YaDictionarySDKTests
                 .ToList();
 
             var yaSdk = new YaDictionary(apiKey);
-            var currentLanguages = await yaSdk.GetLanguagesAsync();
+            var currentLanguages = yaSdk.GetLanguages();
             currentLanguages.Should().Contain(expectedLangPairs);
 
-            currentLanguages = await yaSdk.GetLanguagesAsync(tokenSource.Token);
+            currentLanguages = yaSdk.GetLanguages();
             currentLanguages.Should().Contain(expectedLangPairs);
         }
     }

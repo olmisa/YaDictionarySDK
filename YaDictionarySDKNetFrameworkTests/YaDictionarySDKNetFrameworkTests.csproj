@@ -67,6 +67,12 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+    <ItemGroup>
+    <Compile Include="..\YaDictionarySDKTests\YaDictionarySDKSyncTests.cs">
+      <Link>YaDictionarySDKSyncTests.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="..\YaDictionarySDKTests\Data\Traum.json">
       <Link>Data\Traum.json</Link>
